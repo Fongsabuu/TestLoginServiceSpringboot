@@ -37,7 +37,7 @@ public class LoginJDBC { // sql ดึงข้อมูลส่งกลับ
 	public int updateUser(int id, String user, String pass) {
 		String sql = "UPDATE users SET username='" + user + "', password='" + pass + "' WHERE id='" + id + "'";
 		int status = jdbcTemplate.update(sql);
-		if(id == 2) {
+		if(id == 3) {
 		System.out.println("fail");
 		System.out.println(sql);
 		System.out.println(status); }

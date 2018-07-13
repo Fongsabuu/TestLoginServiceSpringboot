@@ -5,15 +5,22 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 import Services.LoginService;
 import connectDB.ConnectDB;
 import connectDB.LoginJDBC;
 
 @SpringBootApplication
-public class Application { 
-
-	public static void main(String[] args) {
+public class Application extends SpringBootServletInitializer { 
+	
+	@Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(Application.class);
+    }
+	
+	public static void main(String[] args)throws Exception {
 		SpringApplication.run(Application.class, args);
 
 		System.out.println("Let's inspect the beans provided by Spring Boot:");

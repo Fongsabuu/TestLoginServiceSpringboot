@@ -82,9 +82,9 @@ public class TestApplication {
 	@Test
 	public void _06updateSuccess() {
 		Login user = new Login();
-		user.setId(3);
-		user.setUsername("TTTT");
-		user.setPassword("TTTT");
+		user.setId(6);
+		user.setUsername("abc");
+		user.setPassword("1234");
 		Response response = this.restTemplate.postForObject("http://localhost:" + port + "/updatelogin", user,
 				Response.class);
 		assertThat(response.getCode()).isEqualTo("200");
@@ -93,7 +93,7 @@ public class TestApplication {
 	@Test
 	public void _07updateFail() {
 		Login user = new Login();
-		user.setId(8);
+		user.setId(3);
 		user.setUsername("TT");
 		user.setPassword("TT");
 		Response response = this.restTemplate.postForObject("http://localhost:" + port + "/updatelogin", user,
@@ -118,8 +118,8 @@ public class TestApplication {
 	@Test
 	public void _10deleteSuccess() { // อย่าลืม!!!! มัน delete record ออก ตลอด โง่ฉิบหาย !!!!!
 		Login user = new Login();
-		user.setUsername("TTTT");
-		user.setPassword("TTTT");
+		user.setUsername("TT");
+		user.setPassword("TT");
 		Response response = this.restTemplate.postForObject("http://localhost:" + port + "/deletelogin", user,
 				Response.class);
 		assertThat(response.getCode()).isEqualTo("200");
