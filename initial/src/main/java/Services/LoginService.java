@@ -72,7 +72,7 @@ public class LoginService { // จัดการข้อมูลให้เ�
 	}
 
 	public Response updateUser(Login login) {
-		int status = logJDBC.updateUser(login.getId(), login.getUsername(), login.getPassword());
+		int status = logJDBC.updateUser(login);
 		Response res = new Response();
 		if (status == 0) {
 			res.setCode("404");

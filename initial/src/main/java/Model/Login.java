@@ -6,6 +6,8 @@ public class Login {
 	private String username;
 	private String password;
 	private String path;
+	private String name;
+	private String birthday;
 
 	public int getId() {
 		return id;
@@ -50,5 +52,21 @@ public class Login {
 
 	public void setPath(String path) {
 		this.path = path;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
 	}
 }

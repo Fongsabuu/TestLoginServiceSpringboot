@@ -34,10 +34,10 @@ public class LoginJDBC { // sql ดึงข้อมูลส่งกลับ
 		return status;
 	}
 
-	public int updateUser(int id, String user, String pass) {
-		String sql = "UPDATE users SET username='" + user + "', password='" + pass + "' WHERE id='" + id + "'";
+	public int updateUser(Login login) {
+		String sql = "UPDATE users SET username='" + login.getUsername() + "', password='" + login.getPassword() + "', name='" + login.getName() +"', birthday='" + login.getBirthday() + "' WHERE id='" + login.getId() + "'";
 		int status = jdbcTemplate.update(sql);
-		if(id == 3) {
+		if(login.getId() == 3) {
 		System.out.println("fail");
 		System.out.println(sql);
 		System.out.println(status); }
