@@ -132,4 +132,36 @@ public class HelloController { // จัดการข้อมูลเพื�
 			}
 		}
 	}
+	
+	@CrossOrigin("http://localhost:4200") // *** Connect Login Delete***
+	@GetMapping("/lazyloadgetuser")
+	public Response lazyloadGetUser(@RequestParam (value="first") String first ,@RequestParam (value="rows") String rows ) {
+		Response res = new Response();
+		res = loginn.lazyloadGetUser(first, rows);
+		return res;
+	}
+	
+	@CrossOrigin("http://localhost:4200") // *** Connect Login Delete***
+	@GetMapping("/getcountuser")
+	public Response getCountUser() {
+		Response res = new Response();
+		res = loginn.getCountUser();
+		return res;
+	}
+	
+//	@CrossOrigin("http://localhost:4200") // *** Connect Login Delete***
+//	@RequestMapping("/testDB")
+//	public void testDB() {
+//		Response res = new Response();
+//		for (int i = 0; i < 2000; i++) {
+//			Login test = new Login();
+//			test.setUsername("username"+i);
+//			test.setPassword("password"+i);
+//			test.setName("name"+i);
+//			test.setBirthday("birthday"+i);
+//			res = loginn.insertUser(test);
+//			System.out.println(i);
+//		}
+//	
+//	}
 }

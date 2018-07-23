@@ -119,4 +119,28 @@ public class LoginService { // จัดการข้อมูลให้เ�
 		String path = logJDBC.getImagePath(id);
 		return path;
 	}
+	
+	public Response getCountUser() {
+		Response res = new Response();
+		int count = logJDBC.getCountUser();
+		System.out.println(count);
+		res.setCode("200");
+		res.setResult(count);
+		return res;
+	}
+	
+	public Response lazyloadGetUser(String first, String rows) {
+		Response res = new Response();
+		List<Login> listlogin = new ArrayList<Login>();
+		listlogin = logJDBC.getLazyloadGetUser(first, rows);
+		if (listlogin != null) {
+			res.setCode("200");
+			res.setResult(listlogin);
+			return res;
+		} else {
+			res.setCode("404");
+			res.setResult("Not Found All User");
+			return res;
+		}
+	}
 }

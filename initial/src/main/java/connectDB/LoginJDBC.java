@@ -74,4 +74,18 @@ public class LoginJDBC { // sql ดึงข้อมูลส่งกลับ
 		String path = jdbcTemplate.queryForObject(sql, String.class);
 		return path;
 	}
+	
+	public int getCountUser() {
+		String sql = "SELECT COUNT(*) FROM users";
+		int count = jdbcTemplate.queryForObject(sql, Integer.class);
+		return count;
+	}
+	
+	public List<Login> getLazyloadGetUser(String first, String rows) {
+		List<Login> listlogin = new ArrayList<Login>();
+		String sql = "SELECT * FROM users LIMIT " + first + "," + rows;
+		listlogin = jdbcTemplate.query(sql, new BeanPropertyRowMapper<Login>(Login.class));
+		return listlogin;
+
+	}
 }
